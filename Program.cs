@@ -1,10 +1,15 @@
-﻿namespace demo
+﻿using demo.contexts;
+
+namespace demo
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //crud operations:
+            //update,delete,insert(insert)
+
+            using CompanyDbContext context = new CompanyDbContext();
         }
     }
 }
