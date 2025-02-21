@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using demo.contexts;
 
@@ -10,9 +11,11 @@ using demo.contexts;
 namespace demo.contexts.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    partial class CompanyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250221091102_AddOneToOneRelationship")]
+    partial class AddOneToOneRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,13 +36,12 @@ namespace demo.contexts.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("empId")
+                    b.Property<int>("ManagerId")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("empId")
-                        .IsUnique();
+                    b.HasIndex("ManagerId");
 
                     b.ToTable("Departments");
                 });
@@ -75,17 +77,12 @@ namespace demo.contexts.Migrations
             modelBuilder.Entity("demo.Models.Department", b =>
                 {
                     b.HasOne("demo.Models.Employee", "Manager")
-                        .WithOne("department")
-                        .HasForeignKey("demo.Models.Department", "empId")
+                        .WithMany()
+                        .HasForeignKey("ManagerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Manager");
-                });
-
-            modelBuilder.Entity("demo.Models.Employee", b =>
-                {
-                    b.Navigation("department");
                 });
 #pragma warning restore 612, 618
         }

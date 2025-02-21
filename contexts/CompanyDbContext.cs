@@ -20,6 +20,13 @@ namespace demo.contexts
         {
             //modelBuilder.ApplyConfiguration(new EmployeeConfig());
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.Entity<Employee>().HasOne(e => e.department)
+                                           .WithOne(d => d.Manager)
+                                           .HasForeignKey<Department>(d => d.empId);
+
+
+
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
