@@ -12,6 +12,10 @@ namespace demo.contexts
 {
     internal class CompanyDbContext:DbContext
     {
+        public CompanyDbContext():base()
+        {
+            
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.ApplyConfiguration(new EmployeeConfig());
