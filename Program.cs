@@ -50,6 +50,36 @@ namespace demo
 
 
             #endregion
+
+            #region read -retrive-select
+            //read -retrive-select
+
+
+
+            //var res= context.Employees.Where(e => e.Id == 90).FirstOrDefault();
+
+            //    Console.WriteLine(res.Name);
+            //    Console.WriteLine(res.Id);
+
+
+
+            //*****************************************************
+            //var res01 = context.Employees.ToList();
+            //foreach (var item in res01)
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
+
+
+            //var res01 = context.Employees.Select(e => e.Name);
+            //foreach (var item in res01)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+
+
         }
     }
 }
