@@ -51,18 +51,19 @@ namespace demo
 
             #endregion
 
-            #region read -retrive-select
+            #region read-retrive-select
             //read -retrive-select
 
 
 
-            //var res= context.Employees.Where(e => e.Id == 90).FirstOrDefault();
+            //var res = context.Employees.Where(e => e.Id == 90).FirstOrDefault();
 
-            //    Console.WriteLine(res.Name);
-            //    Console.WriteLine(res.Id);
+            ////    Console.WriteLine(res.Name);
+            ////    Console.WriteLine(res.Id);
 
-
-
+            //Console.WriteLine(context.Entry(res).State);//unchanged
+            //res.Name = "Ali";
+            //Console.WriteLine(context.Entry(res).State);//modified
             //*****************************************************
             //var res01 = context.Employees.ToList();
             //foreach (var item in res01)
@@ -76,9 +77,27 @@ namespace demo
             //{
             //    Console.WriteLine(item);
             //} 
+
+
             #endregion
 
+            #region update
+            //update
 
+
+            //var res = context.Employees.FirstOrDefault(e => e.Id == 80);
+            //Console.WriteLine(context.Entry(res).State);//unchanged
+
+            //res.Name = "rahma ahmed";
+
+
+            //context.Update(res);
+            //Console.WriteLine(context.Entry(res).State);//modified
+
+            //context.SaveChanges();
+            //Console.WriteLine(context.Entry(res).State);//unchanged
+
+            #endregion
 
         }
     }
