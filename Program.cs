@@ -2,6 +2,7 @@
 using demo.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace demo
 {
@@ -97,6 +98,18 @@ namespace demo
             //context.SaveChanges();
             //Console.WriteLine(context.Entry(res).State);//unchanged
 
+            #endregion
+
+            #region Delete
+
+
+            //var res = context.Employees.FirstOrDefault(e => e.Id == 70);
+            //Console.WriteLine(context.Entry(res).State);//unchanged
+            //context.Employees.Remove(res);
+            //Console.WriteLine(context.Entry(res).State);//deleted
+
+            //context.SaveChanges();
+            //Console.WriteLine(context.Entry(res).State);//deatched
             #endregion
 
         }
