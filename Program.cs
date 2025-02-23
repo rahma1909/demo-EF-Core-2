@@ -112,6 +112,9 @@ namespace demo
             //Console.WriteLine(context.Entry(res).State);//deatched
             #endregion
 
+
+            
+
         }
     }
 }

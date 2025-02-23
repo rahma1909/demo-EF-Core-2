@@ -16,7 +16,16 @@ namespace demo.Models
         public int Age { get; set; }
         public string Address { get; set; }
 
-        //[InverseProperty(nameof(department.Manager))]
+        #region one to one
+        [InverseProperty(nameof(department.Manager))]
         public Department? department { get; set; }
+        #endregion
+
+        #region one to many
+        [InverseProperty(nameof(department.employee))]
+        public int? workforID { get; set; }// (fk)
+  
+        public Department? workfor { get; set; } //nav prop  
+        #endregion
     }
 }
